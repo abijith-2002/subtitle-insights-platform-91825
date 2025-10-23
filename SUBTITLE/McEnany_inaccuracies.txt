@@ -1,0 +1,13 @@
+Report for McEnany.srt
+Directory: /home/kavia/workspace/code-generation/subtitle-insights-platform-91825/SUBTITLE
+Seed: (random)
+------------------------------------------------------------
+
+File: McEnany.srt
+Processed at: 2025-10-23T06:47:27.875205Z
+
+- Change #1: WORD_DELETE
+  Block index: 573, line: 2
+  Removed word: 'TACKLE'
+  Before: HOW WILL HE TACKLE ALL OF THESE
+  After:  HOW WILL HE ALL OF THESE

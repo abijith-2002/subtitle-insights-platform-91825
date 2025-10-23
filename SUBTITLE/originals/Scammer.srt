@@ -1,4 +1,3 @@
-X-Kavia-Inaccuracies: applied
 1
 00:00:01,434 --> 00:00:04,437
 You are watching a victim get scanned.
@@ -304,7 +303,7 @@ This is our evidence processing room.
 Major Chad Colson
 
 77
-00:02:58,114 --> 00:02:59,115
+00:02:58,144 --> 00:02:59,145
 and his deputies at the Linn
 
 78
@@ -697,7 +696,7 @@ Woodbury, Minnesota police
 
 175
 00:05:53,119 --> 00:05:54,420
-detective Lynn Lawr3nce.
+detective Lynn Lawrence.
 
 176
 00:05:54,420 --> 00:05:55,221
@@ -813,7 +812,7 @@ The Woodbury
 
 204
 00:06:36,295 --> 00:06:37,997
-police say the reason why
+police say the reason why scam
 
 205
 00:06:37,997 --> 00:06:38,998
@@ -1090,3 +1089,4 @@ Elderly people who fall for this.
 273
 00:09:39,679 --> 00:09:40,880
 Why do you keep doing it?
+

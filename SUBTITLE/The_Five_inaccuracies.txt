@@ -1,0 +1,24 @@
+Report for The_Five.srt
+Directory: /home/kavia/workspace/code-generation/subtitle-insights-platform-91825/SUBTITLE
+Seed: (random)
+------------------------------------------------------------
+
+File: The_Five.srt
+Processed at: 2025-10-23T06:47:27.885271Z
+
+- Change #1: WORD_DELETE
+  Block index: 103, line: 1
+  Removed word: 'MAYBE'
+  Before: UP, MAYBE HE DISAGREED OR MAYBE
+  After:  UP, HE DISAGREED OR MAYBE
+
+- Change #2: WORD_REPLACE
+  Block index: 485, line: 2
+  Before: AMERICANS.
+  After:  AMER1CANS.
+
+- Change #3: TIME_SHIFT
+  Block index: 164
+  Offset (ms): 125
+  Before: 00:02:36,022 --> 00:02:36,155
+  After:  00:02:36,147 --> 00:02:36,280

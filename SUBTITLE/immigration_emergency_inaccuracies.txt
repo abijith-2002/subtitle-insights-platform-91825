@@ -1,0 +1,18 @@
+Report for immigration_emergency.srt
+Directory: /home/kavia/workspace/code-generation/subtitle-insights-platform-91825/SUBTITLE
+Seed: (random)
+------------------------------------------------------------
+
+File: immigration_emergency.srt
+Processed at: 2025-10-23T06:47:27.890225Z
+
+- Change #1: TIME_SHIFT
+  Block index: 2
+  Offset (ms): -37
+  Before: 00:00:05,772 --> 00:00:05,905
+  After:  00:00:05,735 --> 00:00:05,868
+
+- Change #2: WORD_REPLACE
+  Block index: 41, line: 2
+  Before: FAMILIES WHO HAVE FACED MAJOR 
+  After:  FAMILIES WHO HAVE FACED MAOJR 

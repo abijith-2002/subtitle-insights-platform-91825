@@ -1,0 +1,24 @@
+Report for Scammer.srt
+Directory: /home/kavia/workspace/code-generation/subtitle-insights-platform-91825/SUBTITLE
+Seed: (random)
+------------------------------------------------------------
+
+File: Scammer.srt
+Processed at: 2025-10-23T06:47:27.880026Z
+
+- Change #1: WORD_DELETE
+  Block index: 204, line: 1
+  Removed word: 'scam'
+  Before: police say the reason why scam
+  After:  police say the reason why
+
+- Change #2: TIME_SHIFT
+  Block index: 77
+  Offset (ms): -30
+  Before: 00:02:58,144 --> 00:02:59,145
+  After:  00:02:58,114 --> 00:02:59,115
+
+- Change #3: WORD_REPLACE
+  Block index: 175, line: 1
+  Before: detective Lynn Lawrence.
+  After:  detective Lynn Lawr3nce.
