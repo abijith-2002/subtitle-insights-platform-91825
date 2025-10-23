@@ -1,0 +1,133 @@
+
+(venv) C:\Users\42785\Desktop\project\Subtitle_QC>uvicorn main:app --reload
+INFO:     Will watch for changes in these directories: ['C:\\Users\\42785\\Desktop\\project\\Subtitle_QC']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [26848] using WatchFiles
+INFO:     Started server process [16800]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:55961 - "GET /files/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55961 - "GET /files/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60242 - "GET /health/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60242 - "GET /health/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60242 - "GET /models/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60242 - "GET /models/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "POST /upload-video/ HTTP/1.1" 200 OK
+[INFO] Starting subtitle generation with m2m100 translator
+INFO:     127.0.0.1:50975 - "POST /generate/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Extracted audio ...C:\Users\42785\AppData\Local\Temp\subgen_4fe54d226ebc4346a3610ff4e321171b\audio.wav
+Audio duration: 547.9s, using chunk length: 300s
+C:\Users\42785\Desktop\project\Subtitle_QC\venv\Lib\site-packages\stable_whisper\whisper_word_level\original_whisper.py:249: UserWarning: FP16 is not supported on CPU; using FP32 instead
+  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
+Transcribe:   0%|                                                         | 0/547.85 [00:00<?, ?sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+Detected language: english
+Transcribe:   0%|                                                         | 0/547.85 [00:01<?, ?sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:   4%|█▋                                           | 20.96/547.85 [00:10<04:13,  2.08sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+Transcribe:   9%|████▏                                        | 50.96/547.85 [00:13<01:57,  4.22sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:  15%|██████▋                                      | 80.96/547.85 [00:58<06:38,  1.17sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:  20%|████████▉                                   | 110.96/547.85 [01:35<07:18,  1.00s/sec]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:  26%|███████████▎                                | 140.96/547.85 [01:39<04:38,  1.46sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+Transcribe:  31%|█████████████▋                              | 170.96/547.85 [01:43<03:07,  2.01sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+Transcribe:  37%|████████████████▏                           | 200.96/547.85 [01:48<02:13,  2.60sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+Transcribe:  42%|██████████████████▌                         | 230.96/547.85 [01:51<01:33,  3.38sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:  48%|████████████████████▉                       | 260.96/547.85 [02:07<01:47,  2.67sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:  53%|███████████████████████▎                    | 290.96/547.85 [02:16<01:29,  2.88sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:  59%|█████████████████████████▊                  | 320.96/547.85 [02:27<01:20,  2.80sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:  64%|████████████████████████████▏               | 350.96/547.85 [02:37<01:08,  2.89sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:  70%|██████████████████████████████▌             | 380.96/547.85 [02:44<00:51,  3.23sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:  75%|█████████████████████████████████           | 410.96/547.85 [02:51<00:39,  3.47sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:  80%|███████████████████████████████████▍        | 440.96/547.85 [03:00<00:31,  3.42sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:  86%|█████████████████████████████████████▊      | 470.96/547.85 [03:08<00:21,  3.57sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:  91%|████████████████████████████████████████▏   | 500.96/547.85 [03:14<00:12,  3.82sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe: 100%|████████████████████████████████████████████| 547.85/547.85 [03:22<00:00,  2.70sec/s]
+Detected language from first chunk: en
+Detected audio language: en
+Requested subtitle language: en
+Using whisper transcribe task
+Total chunks: 1 (using 6 workers on CPU)
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+C:\Users\42785\Desktop\project\Subtitle_QC\venv\Lib\site-packages\stable_whisper\whisper_word_level\original_whisper.py:249: UserWarning: FP16 is not supported on CPU; using FP32 instead
+  warnings.warn("FP16 is not supported on CPU; using FP32 instead")
+Transcribe:   0%|                                                         | 0/547.85 [00:00<?, ?sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:   4%|█▋                                           | 20.96/547.85 [00:23<09:48,  1.12s/sec]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:   9%|████▏                                         | 50.6/547.85 [00:50<08:05,  1.02sec/s]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe:  15%|██████▌                                      | 80.24/547.85 [01:23<08:11,  1.05s/sec]INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK 
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50975 - "GET /generate/status/2ba3381e-63ea-4721-a2cb-88801d4dd70b HTTP/1.1" 200 OK
+Transcribe: 100%|████████████████████████████████████████████| 547.85/547.85 [13:56<00:00,  1.53s/sec]
+Finished chunk 1/1
+Total time taken: 1113.72 seconds

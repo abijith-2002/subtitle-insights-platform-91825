@@ -1,0 +1,12 @@
+[INFO] Starting subtitle generation with m2m100 translator
+Extracted audio ...C:\Users\42785\AppData\Local\Temp\subgen_bec73acba321484d84032d4c0b7e9793\audio.wav
+Audio duration: 159.5s, using chunk length: 300s
+Detected language: english
+Detected language from first chunk: en
+Detected audio language: en
+Requested subtitle language: en
+Using whisper transcribe task
+Total chunks: 1 (using 6 workers on CPU)
+Finished chunk 1/1
+Output:  C:\Users\42785\Desktop\sample_videos\generated_subtitles\Los Angeles County declares immigration emergency [pWYvqj1xk78]_generated.srt
+total time taken :228.87502765655518
