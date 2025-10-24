@@ -1,0 +1,831 @@
+2025-10-23 17:50:08,014 - DEBUG - srt_detect_text index=1 text=[both speaking Spanish]
+2025-10-23 17:50:08,015 - INFO - detections_segment start=1.034 end=3.07
+2025-10-23 17:50:08,015 - DEBUG - srt_detect_text index=2 text=- El Jefe will see you now.
+Come with me.
+2025-10-23 17:50:08,015 - INFO - detections_segment start=15.716 end=18.385
+2025-10-23 17:50:08,015 - DEBUG - srt_detect_text index=3 text=El Jefe.
+2025-10-23 17:50:08,016 - INFO - detections_segment start=23.824 end=26.126
+2025-10-23 17:50:08,016 - DEBUG - srt_detect_text index=4 text=I got the money.
+You got the weapons?
+2025-10-23 17:50:08,016 - INFO - detections_segment start=27.261 end=30.264
+2025-10-23 17:50:08,016 - DEBUG - srt_detect_text index=5 text=- If you want to talk to him,
+you talk to me.
+2025-10-23 17:50:08,017 - INFO - detections_segment start=30.264 end=33.901
+2025-10-23 17:50:08,017 - DEBUG - srt_detect_text index=6 text=- Oh, you're the translator?
+2025-10-23 17:50:08,017 - INFO - detections_segment start=33.901 end=35.102
+2025-10-23 17:50:08,017 - DEBUG - srt_detect_text index=7 text=- No, you are the translator.
+2025-10-23 17:50:08,018 - INFO - detections_segment start=39.606 end=41.174
+2025-10-23 17:50:08,018 - DEBUG - srt_detect_text index=8 text=- Okay.
+I got the money.
+2025-10-23 17:50:08,018 - INFO - detections_segment start=43.21 end=45.212
+2025-10-23 17:50:08,573 - DEBUG - frame_counter=0
+2025-10-23 17:50:08,573 - DEBUG - Initializing global RapidOCR instance (once)
+2025-10-23 17:50:11,367 - DEBUG - frame_counter=0
+2025-10-23 17:50:12,301 - DEBUG - frame_counter=0
+2025-10-23 17:50:13,922 - DEBUG - frame_counter=0
+2025-10-23 17:50:14,462 - INFO - ocr_detections_found
+2025-10-23 17:50:14,462 - DEBUG - srt_detect_text index=9 text=[coughs]
+2025-10-23 17:50:14,463 - ERROR - srt_detection_error idx=0 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:50:14,463 - INFO - detections_segment start=47.247 end=48.749
+2025-10-23 17:50:18,594 - DEBUG - frame_counter=1
+2025-10-23 17:50:19,362 - DEBUG - frame_counter=2
+2025-10-23 17:50:20,268 - DEBUG - frame_counter=2
+2025-10-23 17:50:25,133 - DEBUG - frame_counter=5
+2025-10-23 17:50:25,488 - INFO - ocr_detections_found
+2025-10-23 17:50:25,488 - DEBUG - srt_detect_text index=10 text=<i> Ay, perdón.</i>
+2025-10-23 17:50:25,488 - ERROR - srt_detection_error idx=6 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:50:25,488 - INFO - detections_segment start=48.749 end=50.117
+2025-10-23 17:50:25,964 - DEBUG - frame_counter=5
+2025-10-23 17:50:27,562 - DEBUG - frame_counter=6
+2025-10-23 17:50:30,372 - INFO - ocr_detections_found
+2025-10-23 17:50:30,373 - DEBUG - srt_detect_text index=11 text=- I didn't hear you.
+You coughed.
+2025-10-23 17:50:30,373 - INFO - detections_segment start=51.451 end=52.786
+2025-10-23 17:50:30,388 - ERROR - srt_detection_error idx=8 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:50:30,395 - DEBUG - frame_counter=6
+2025-10-23 17:50:35,549 - DEBUG - frame_counter=8
+2025-10-23 17:50:36,440 - DEBUG - frame_counter=8
+2025-10-23 17:50:41,276 - DEBUG - frame_counter=10
+2025-10-23 17:50:43,882 - DEBUG - frame_counter=11
+2025-10-23 17:50:47,791 - DEBUG - frame_counter=12
+2025-10-23 17:50:48,870 - DEBUG - frame_counter=12
+2025-10-23 17:50:52,492 - DEBUG - frame_counter=13
+2025-10-23 17:50:52,997 - INFO - ocr_detections_found
+2025-10-23 17:50:52,998 - DEBUG - srt_detect_text index=12 text=- No, I didn't.
+I didn't cough, you coughed.
+2025-10-23 17:50:52,998 - ERROR - srt_detection_error idx=10 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:50:52,998 - INFO - detections_segment start=52.786 end=54.655
+2025-10-23 17:50:55,222 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:50:55,223 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:50:55,223 - DEBUG - srt_detections index=3 payload_len=595
+2025-10-23 17:50:55,223 - DEBUG - srt_detect_text index=13 text=- Stop saying that I coughed.
+2025-10-23 17:50:55,223 - INFO - srt_detection_result_received index=2
+2025-10-23 17:50:55,223 - INFO - detections_segment start=57.424 end=58.759
+2025-10-23 17:50:56,674 - DEBUG - frame_counter=14
+2025-10-23 17:50:58,114 - DEBUG - frame_counter=14
+2025-10-23 17:51:00,175 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:51:00,176 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:51:00,177 - DEBUG - srt_detections index=4 payload_len=596
+2025-10-23 17:51:00,178 - DEBUG - srt_detect_text index=14 text=- You coughed when you spoke
+to El Jefe.
+2025-10-23 17:51:00,178 - INFO - detections_segment start=58.759 end=60.994
+2025-10-23 17:51:00,179 - INFO - srt_detection_result_received index=3
+2025-10-23 17:51:00,280 - DEBUG - frame_counter=15
+2025-10-23 17:51:00,982 - DEBUG - frame_counter=15
+2025-10-23 17:51:01,071 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:51:01,071 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:51:01,073 - DEBUG - srt_detections index=2 payload_len=584
+2025-10-23 17:51:01,073 - DEBUG - srt_detect_text index=15 text=- Ah, translator,
+what are you talking about?
+2025-10-23 17:51:01,073 - INFO - srt_detection_result_received index=1
+2025-10-23 17:51:01,073 - INFO - detections_segment start=63.597 end=65.432
+2025-10-23 17:51:02,960 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:51:02,960 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:51:02,961 - DEBUG - srt_detections index=6 payload_len=593
+2025-10-23 17:51:02,962 - DEBUG - srt_detect_text index=16 text=- Can I, uh,
+try talking to him alone?
+2025-10-23 17:51:02,962 - INFO - srt_detection_result_received index=5
+2025-10-23 17:51:02,962 - INFO - detections_segment start=68.335 end=70.871
+2025-10-23 17:51:03,070 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:51:03,071 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:51:03,072 - DEBUG - srt_detections index=5 payload_len=583
+2025-10-23 17:51:03,072 - DEBUG - srt_detect_text index=17 text=- Yes, I will go.
+2025-10-23 17:51:03,072 - INFO - detections_segment start=74.274 end=76.243
+2025-10-23 17:51:03,072 - INFO - srt_detection_result_received index=4
+2025-10-23 17:51:04,547 - DEBUG - frame_counter=18
+2025-10-23 17:51:05,287 - DEBUG - frame_counter=18
+2025-10-23 17:51:06,415 - DEBUG - frame_counter=18
+2025-10-23 17:51:07,456 - DEBUG - frame_counter=19
+2025-10-23 17:51:08,331 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:51:08,331 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:51:08,333 - DEBUG - srt_detections index=8 payload_len=596
+2025-10-23 17:51:08,333 - DEBUG - srt_detect_text index=18 text=- What?
+No, no!
+2025-10-23 17:51:08,333 - INFO - detections_segment start=76.243 end=78.211
+2025-10-23 17:51:08,334 - INFO - srt_detection_result_received index=7
+2025-10-23 17:51:08,992 - DEBUG - frame_counter=20
+2025-10-23 17:51:10,689 - DEBUG - frame_counter=20
+2025-10-23 17:51:13,780 - DEBUG - frame_counter=21
+2025-10-23 17:51:14,224 - INFO - ocr_detections_found
+2025-10-23 17:51:14,224 - DEBUG - srt_detect_text index=19 text=Hey, I meant us!
+2025-10-23 17:51:14,224 - ERROR - srt_detection_error idx=12 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:51:14,224 - INFO - detections_segment start=78.211 end=79.88
+2025-10-23 17:51:15,865 - DEBUG - frame_counter=22
+2025-10-23 17:51:16,077 - INFO - ocr_detections_found
+2025-10-23 17:51:16,078 - DEBUG - srt_detect_text index=20 text=- Yes, come here.
+2025-10-23 17:51:16,078 - ERROR - srt_detection_error idx=14 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:51:16,078 - INFO - detections_segment start=84.318 end=86.053
+2025-10-23 17:51:18,794 - INFO - ocr_detections_found
+2025-10-23 17:51:18,794 - DEBUG - srt_detect_text index=21 text=<i> [tense music]</i>
+2025-10-23 17:51:18,795 - ERROR - srt_detection_error idx=16 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:51:18,795 - INFO - detections_segment start=88.488 end=91.358
+2025-10-23 17:51:20,311 - DEBUG - frame_counter=23
+2025-10-23 17:51:21,194 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:51:21,194 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:51:21,195 - DEBUG - srt_detections index=10 payload_len=598
+2025-10-23 17:51:21,195 - DEBUG - srt_detect_text index=22 text=<i> ♪ ♪</i>
+2025-10-23 17:51:21,195 - INFO - srt_detection_result_received index=9
+2025-10-23 17:51:21,195 - INFO - detections_segment start=91.358 end=96.33
+2025-10-23 17:51:21,512 - DEBUG - frame_counter=24
+2025-10-23 17:51:22,236 - DEBUG - frame_counter=24
+2025-10-23 17:51:26,590 - DEBUG - frame_counter=26
+2025-10-23 17:51:27,568 - DEBUG - frame_counter=26
+2025-10-23 17:51:31,622 - DEBUG - frame_counter=27
+2025-10-23 17:51:33,879 - DEBUG - frame_counter=28
+2025-10-23 17:51:35,771 - DEBUG - frame_counter=28
+2025-10-23 17:51:36,056 - INFO - ocr_detections_found
+2025-10-23 17:51:36,056 - DEBUG - srt_detect_text index=23 text=- Wait, I thought you wanted
+to talk to me alone.
+2025-10-23 17:51:36,056 - ERROR - srt_detection_error idx=19 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:51:36,056 - INFO - detections_segment start=100.5 end=102.502
+2025-10-23 17:51:37,398 - DEBUG - frame_counter=28
+2025-10-23 17:51:39,713 - DEBUG - frame_counter=30
+2025-10-23 17:51:41,157 - DEBUG - frame_counter=31
+2025-10-23 17:51:43,729 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:51:43,729 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:51:43,730 - DEBUG - srt_detections index=12 payload_len=590
+2025-10-23 17:51:43,730 - DEBUG - srt_detect_text index=24 text=- Yeah, exactly.
+2025-10-23 17:51:43,730 - INFO - detections_segment start=102.502 end=103.804
+2025-10-23 17:51:43,732 - INFO - srt_detection_result_received index=11
+2025-10-23 17:51:44,979 - DEBUG - frame_counter=33
+2025-10-23 17:51:46,738 - DEBUG - frame_counter=34
+2025-10-23 17:51:49,324 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:51:49,324 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:51:49,326 - DEBUG - srt_detections index=14 payload_len=598
+2025-10-23 17:51:49,326 - DEBUG - srt_detect_text index=25 text=- Then come here.
+2025-10-23 17:51:49,326 - INFO - detections_segment start=106.44 end=107.941
+2025-10-23 17:51:49,326 - INFO - srt_detection_result_received index=13
+2025-10-23 17:51:49,575 - DEBUG - frame_counter=35
+2025-10-23 17:51:51,227 - DEBUG - frame_counter=35
+2025-10-23 17:51:52,179 - DEBUG - frame_counter=35
+2025-10-23 17:51:55,330 - DEBUG - frame_counter=35
+2025-10-23 17:51:55,983 - INFO - ocr_detections_found
+2025-10-23 17:51:55,983 - DEBUG - srt_detect_text index=26 text=- No...
+2025-10-23 17:51:55,983 - ERROR - srt_detection_error idx=20 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:51:55,983 - INFO - detections_segment start=108.976 end=111.244
+2025-10-23 17:51:56,558 - INFO - ocr_detections_found
+2025-10-23 17:51:56,558 - DEBUG - srt_detect_text index=27 text=Look, um, do you have the...
+2025-10-23 17:51:56,558 - ERROR - srt_detection_error idx=22 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:51:56,558 - INFO - detections_segment start=119.753 end=124.825
+2025-10-23 17:51:57,526 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:51:57,526 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:51:57,527 - DEBUG - srt_detections index=16 payload_len=597
+2025-10-23 17:51:57,527 - DEBUG - srt_detect_text index=28 text=How do you say, uh...
+2025-10-23 17:51:57,527 - INFO - srt_detection_result_received index=15
+2025-10-23 17:51:57,527 - INFO - detections_segment start=124.825 end=126.827
+2025-10-23 17:51:58,780 - DEBUG - frame_counter=37
+2025-10-23 17:52:00,347 - DEBUG - frame_counter=37
+2025-10-23 17:52:00,369 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:52:00,369 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:52:00,374 - DEBUG - srt_detections index=18 payload_len=581
+2025-10-23 17:52:00,375 - DEBUG - srt_detect_text index=29 text=- The weapons?
+2025-10-23 17:52:00,375 - INFO - srt_detection_result_received index=17
+2025-10-23 17:52:00,375 - INFO - detections_segment start=131.531 end=132.566
+2025-10-23 17:52:00,986 - DEBUG - frame_counter=38
+2025-10-23 17:52:02,368 - DEBUG - frame_counter=38
+2025-10-23 17:52:03,363 - DEBUG - frame_counter=38
+2025-10-23 17:52:03,769 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:52:03,770 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:52:03,771 - DEBUG - srt_detections index=19 payload_len=589
+2025-10-23 17:52:03,771 - DEBUG - srt_detect_text index=30 text=- Weapons!
+2025-10-23 17:52:03,771 - INFO - srt_detection_result_received index=18
+2025-10-23 17:52:03,771 - INFO - detections_segment start=135.268 end=136.703
+2025-10-23 17:52:06,848 - DEBUG - frame_counter=40
+2025-10-23 17:52:08,643 - INFO - ocr_detections_found
+2025-10-23 17:52:08,644 - DEBUG - srt_detect_text index=31 text=- Weapons!
+2025-10-23 17:52:08,644 - ERROR - srt_detection_error idx=24 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:52:08,644 - INFO - detections_segment start=138.372 end=140.607
+2025-10-23 17:52:09,183 - DEBUG - frame_counter=41
+2025-10-23 17:52:10,408 - DEBUG - frame_counter=42
+2025-10-23 17:52:13,485 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:52:13,485 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:52:13,486 - DEBUG - srt_detections index=22 payload_len=597
+2025-10-23 17:52:13,486 - DEBUG - srt_detect_text index=32 text=Yes, weapons,
+but what is<i> las armas.</i>
+2025-10-23 17:52:13,486 - INFO - srt_detection_result_received index=21
+2025-10-23 17:52:13,487 - INFO - detections_segment start=140.607 end=142.142
+2025-10-23 17:52:14,341 - DEBUG - frame_counter=43
+2025-10-23 17:52:15,728 - DEBUG - frame_counter=44
+2025-10-23 17:52:17,577 - INFO - ocr_detections_found
+2025-10-23 17:52:17,578 - DEBUG - srt_detect_text index=33 text=- You are the worst
+[bleep] translator.
+2025-10-23 17:52:17,578 - ERROR - srt_detection_error idx=28 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:52:17,578 - INFO - detections_segment start=142.142 end=143.81
+2025-10-23 17:52:17,770 - DEBUG - frame_counter=44
+2025-10-23 17:52:17,782 - INFO - ocr_detections_found
+2025-10-23 17:52:17,783 - DEBUG - srt_detect_text index=34 text=- No, [bleep] you.
+I'm not a translator!
+2025-10-23 17:52:17,783 - ERROR - srt_detection_error idx=29 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:52:17,783 - INFO - detections_segment start=147.881 end=149.349
+2025-10-23 17:52:18,409 - DEBUG - frame_counter=44
+2025-10-23 17:52:20,357 - DEBUG - frame_counter=44
+2025-10-23 17:52:21,709 - DEBUG - frame_counter=45
+2025-10-23 17:52:22,426 - INFO - ocr_detections_found
+2025-10-23 17:52:22,427 - DEBUG - srt_detect_text index=35 text=- Not [bleep] him, [bleep] you!
+2025-10-23 17:52:22,427 - ERROR - srt_detection_error idx=23 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:52:22,427 - INFO - detections_segment start=149.349 end=151.985
+2025-10-23 17:52:23,474 - DEBUG - frame_counter=45
+2025-10-23 17:52:26,746 - DEBUG - frame_counter=47
+2025-10-23 17:52:28,384 - DEBUG - frame_counter=47
+2025-10-23 17:52:30,846 - DEBUG - frame_counter=48
+2025-10-23 17:52:30,961 - INFO - ocr_detections_found
+2025-10-23 17:52:30,962 - DEBUG - srt_detect_text index=36 text=Jefe, Jefe.
+2025-10-23 17:52:30,962 - ERROR - srt_detection_error idx=31 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:52:30,962 - INFO - detections_segment start=157.624 end=158.992
+2025-10-23 17:52:33,256 - DEBUG - frame_counter=49
+2025-10-23 17:52:34,997 - DEBUG - frame_counter=49
+2025-10-23 17:52:35,594 - INFO - ocr_detections_found
+2025-10-23 17:52:35,596 - DEBUG - srt_detect_text index=37 text=- Whoa, whoa, wait.
+- No, no, I'm on your side.
+2025-10-23 17:52:35,596 - ERROR - srt_detection_error idx=33 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:52:35,597 - INFO - detections_segment start=162.362 end=164.731
+2025-10-23 17:52:36,984 - DEBUG - frame_counter=49
+2025-10-23 17:52:37,891 - INFO - ocr_detections_found
+2025-10-23 17:52:37,892 - DEBUG - srt_detect_text index=38 text=Relax, okay?
+Jefe...
+2025-10-23 17:52:37,892 - ERROR - srt_detection_error idx=34 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:52:37,892 - INFO - detections_segment start=164.731 end=166.233
+2025-10-23 17:52:39,447 - DEBUG - frame_counter=49
+2025-10-23 17:52:40,696 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:52:40,696 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:52:40,698 - DEBUG - srt_detections index=27 payload_len=592
+2025-10-23 17:52:40,698 - DEBUG - srt_detect_text index=39 text=- Whoa, whoa, whoa.
+Are you telling him to kill me?
+2025-10-23 17:52:40,699 - INFO - srt_detection_result_received index=26
+2025-10-23 17:52:40,699 - INFO - detections_segment start=167.634 end=169.569
+2025-10-23 17:52:40,917 - INFO - ocr_detections_found
+2025-10-23 17:52:40,917 - DEBUG - srt_detect_text index=40 text=- No,<i> mata al Americano</i>
+is a word--
+2025-10-23 17:52:40,917 - ERROR - srt_detection_error idx=30 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:52:40,917 - INFO - detections_segment start=169.569 end=171.271
+2025-10-23 17:52:41,247 - DEBUG - frame_counter=50
+2025-10-23 17:52:43,637 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:52:43,638 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:52:43,638 - DEBUG - srt_detections index=26 payload_len=600
+2025-10-23 17:52:43,638 - DEBUG - srt_detect_text index=41 text=It's a Guatemalan
+rice dish, okay?
+2025-10-23 17:52:43,639 - INFO - srt_detection_result_received index=25
+2025-10-23 17:52:43,639 - INFO - detections_segment start=171.271 end=172.873
+2025-10-23 17:52:44,810 - DEBUG - frame_counter=51
+2025-10-23 17:52:45,366 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:52:45,366 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:52:45,367 - DEBUG - srt_detections index=28 payload_len=600
+2025-10-23 17:52:45,368 - DEBUG - srt_detect_text index=42 text=- Okay, see,
+that does sound like
+2025-10-23 17:52:45,368 - INFO - srt_detection_result_received index=27
+2025-10-23 17:52:45,368 - INFO - detections_segment start=174.541 end=176.276
+2025-10-23 17:52:47,310 - DEBUG - frame_counter=52
+2025-10-23 17:52:48,518 - DEBUG - frame_counter=52
+2025-10-23 17:52:49,735 - INFO - ocr_detections_found
+2025-10-23 17:52:49,735 - DEBUG - srt_detect_text index=43 text=you're telling him
+to shoot me.
+2025-10-23 17:52:49,735 - ERROR - srt_detection_error idx=35 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:52:49,735 - INFO - detections_segment start=176.276 end=177.611
+2025-10-23 17:52:53,353 - DEBUG - frame_counter=54
+2025-10-23 17:52:54,096 - DEBUG - frame_counter=54
+2025-10-23 17:52:55,015 - DEBUG - frame_counter=55
+2025-10-23 17:52:56,714 - DEBUG - frame_counter=55
+2025-10-23 17:52:57,364 - INFO - ocr_detections_found
+2025-10-23 17:52:57,365 - DEBUG - srt_detect_text index=44 text=- No, no,
+that's how you cook it.
+2025-10-23 17:52:57,365 - ERROR - srt_detection_error idx=38 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:52:57,365 - INFO - detections_segment start=177.611 end=178.812
+2025-10-23 17:52:58,922 - DEBUG - frame_counter=56
+2025-10-23 17:53:02,201 - INFO - ocr_detections_found
+2025-10-23 17:53:02,201 - DEBUG - srt_detect_text index=45 text=That's how--bam, bam, bam.
+2025-10-23 17:53:02,201 - ERROR - srt_detection_error idx=41 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:53:02,201 - INFO - detections_segment start=178.812 end=181.014
+2025-10-23 17:53:02,557 - DEBUG - frame_counter=57
+2025-10-23 17:53:04,767 - DEBUG - frame_counter=58
+2025-10-23 17:53:08,463 - DEBUG - frame_counter=59
+2025-10-23 17:53:09,400 - DEBUG - frame_counter=59
+2025-10-23 17:53:10,105 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:53:10,105 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:53:10,106 - DEBUG - srt_detections index=33 payload_len=580
+2025-10-23 17:53:10,107 - DEBUG - srt_detect_text index=46 text=- Okay, he shoots me,
+I shoot you.
+2025-10-23 17:53:10,107 - INFO - srt_detection_result_received index=32
+2025-10-23 17:53:10,107 - INFO - detections_segment start=181.014 end=182.582
+2025-10-23 17:53:10,346 - DEBUG - frame_counter=60
+2025-10-23 17:53:11,755 - DEBUG - frame_counter=60
+2025-10-23 17:53:14,546 - DEBUG - frame_counter=63
+2025-10-23 17:53:15,997 - DEBUG - frame_counter=63
+2025-10-23 17:53:17,274 - DEBUG - frame_counter=64
+2025-10-23 17:53:21,131 - DEBUG - frame_counter=66
+2025-10-23 17:53:22,869 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:53:22,870 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:53:22,871 - DEBUG - srt_detections index=37 payload_len=599
+2025-10-23 17:53:22,871 - DEBUG - srt_detect_text index=47 text=- Wait, do you mean
+you or him?
+2025-10-23 17:53:22,871 - INFO - srt_detection_result_received index=36
+2025-10-23 17:53:22,871 - INFO - detections_segment start=186.887 end=188.588
+2025-10-23 17:53:24,572 - DEBUG - frame_counter=67
+2025-10-23 17:53:26,343 - DEBUG - frame_counter=67
+2025-10-23 17:53:28,404 - INFO - ocr_detections_found
+2025-10-23 17:53:28,404 - DEBUG - srt_detect_text index=48 text=- You!
+- Ah.
+2025-10-23 17:53:28,404 - ERROR - srt_detection_error idx=45 err='>' not supported between instances of 'str' and 'float'
+Traceback (most recent call last):
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 836, in detect_text_srt
+    results[idx] = future.result()
+                   ~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\42778\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 825, in process_sub
+    detections = get_detections(video_reader, start_sec, end_sec, min_frames)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 722, in get_detections
+    detections = detect_using_rapidocr(preprocessed)
+  File "C:\Users\42778\Desktop\Subtitle_Sync\TE_MCVA_GENAI\reposition_subtitle.py", line 213, in detect_using_rapidocr
+    if score>0.7:
+       ^^^^^^^^^
+TypeError: '>' not supported between instances of 'str' and 'float'
+2025-10-23 17:53:28,405 - INFO - detections_segment start=188.588 end=191.191
+2025-10-23 17:53:28,855 - DEBUG - frame_counter=67
+2025-10-23 17:53:29,251 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:53:29,251 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:53:29,252 - DEBUG - srt_detections index=40 payload_len=600
+2025-10-23 17:53:29,252 - DEBUG - srt_detect_text index=49 text=<i> [intense music]</i>
+2025-10-23 17:53:29,252 - INFO - srt_detection_result_received index=39
+2025-10-23 17:53:29,252 - INFO - detections_segment start=191.191 end=194.194
+2025-10-23 17:53:30,554 - DEBUG - frame_counter=68
+2025-10-23 17:53:31,130 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:53:31,130 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:53:31,131 - DEBUG - srt_detections index=38 payload_len=599
+2025-10-23 17:53:31,131 - DEBUG - srt_detect_text index=50 text=<i> ♪ ♪</i>
+2025-10-23 17:53:31,131 - INFO - srt_detection_result_received index=37
+2025-10-23 17:53:31,131 - INFO - detections_segment start=194.194 end=197.264
+2025-10-23 17:53:33,974 - DEBUG - frame_counter=70
+2025-10-23 17:53:37,049 - DEBUG - frame_counter=70
+2025-10-23 17:53:37,425 - INFO - ocr_detections_found
+2025-10-23 17:53:37,426 - DEBUG - srt_detect_text index=51 text=[bird cooing]
+2025-10-23 17:53:37,514 - INFO - detections_segment start=197.264 end=199.032
+2025-10-23 17:53:38,863 - DEBUG - frame_counter=70
+2025-10-23 17:53:40,566 - DEBUG - frame_counter=70
+2025-10-23 17:53:42,230 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:53:42,230 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:53:42,231 - DEBUG - srt_detections index=43 payload_len=591
+2025-10-23 17:53:42,231 - DEBUG - srt_detect_text index=52 text=- Hoo-hoo.
+2025-10-23 17:53:42,231 - INFO - detections_segment start=200.4 end=202.035
+2025-10-23 17:53:42,972 - DEBUG - frame_counter=72
+2025-10-23 17:53:44,275 - DEBUG - frame_counter=72
+2025-10-23 17:53:46,223 - INFO - ocr_detections_found
+2025-10-23 17:53:46,223 - DEBUG - srt_detect_text index=53 text=Pio-pio.
+2025-10-23 17:53:46,223 - INFO - detections_segment start=202.035 end=203.403
+2025-10-23 17:53:48,085 - DEBUG - frame_counter=73
+2025-10-23 17:53:49,017 - DEBUG - frame_counter=74
+2025-10-23 17:53:50,729 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:53:50,729 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:53:50,735 - DEBUG - srt_detections index=44 payload_len=589
+2025-10-23 17:53:50,735 - DEBUG - srt_detect_text index=54 text=- I'm sorry.
+2025-10-23 17:53:50,735 - INFO - detections_segment start=217.25 end=218.718
+2025-10-23 17:53:50,997 - DEBUG - frame_counter=76
+2025-10-23 17:53:54,906 - DEBUG - frame_counter=77
+2025-10-23 17:53:57,379 - INFO - ocr_detections_found
+2025-10-23 17:53:57,380 - DEBUG - srt_detect_text index=55 text=He's the worst [bleep]
+translator.
+56
+00:03:41,621 --> 00:00:00,000
+- Oh.
+2025-10-23 17:53:57,380 - INFO - detections_segment start=218.718 end=221.621
+2025-10-23 17:53:59,116 - DEBUG - frame_counter=77
+2025-10-23 17:54:01,873 - DEBUG - frame_counter=77
+2025-10-23 17:54:03,755 - DEBUG - frame_counter=78
+2025-10-23 17:54:05,672 - DEBUG - frame_counter=79
+2025-10-23 17:54:07,759 - DEBUG - frame_counter=79
+2025-10-23 17:54:11,420 - DEBUG - frame_counter=82
+2025-10-23 17:54:16,043 - DEBUG - frame_counter=83
+2025-10-23 17:54:17,677 - DEBUG - frame_counter=83
+2025-10-23 17:54:19,449 - DEBUG - frame_counter=84
+2025-10-23 17:54:20,776 - DEBUG - frame_counter=84
+2025-10-23 17:54:24,235 - INFO - ocr_detections_found
+2025-10-23 17:54:24,627 - INFO - ocr_detections_found
+2025-10-23 17:54:24,692 - DEBUG - frame_counter=85
+2025-10-23 17:54:25,435 - DEBUG - frame_counter=85
+2025-10-23 17:54:26,493 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:54:26,493 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:54:26,494 - DEBUG - srt_detections index=49 payload_len=579
+2025-10-23 17:54:27,071 - DEBUG - frame_counter=86
+2025-10-23 17:54:27,863 - DEBUG - frame_counter=86
+2025-10-23 17:54:27,894 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:54:27,894 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:54:27,895 - DEBUG - srt_detections index=48 payload_len=599
+2025-10-23 17:54:30,318 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:54:30,318 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:54:30,319 - DEBUG - srt_detections index=50 payload_len=588
+2025-10-23 17:54:31,563 - DEBUG - frame_counter=89
+2025-10-23 17:54:33,095 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:54:33,095 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:54:33,096 - DEBUG - srt_detections index=51 payload_len=599
+2025-10-23 17:54:33,167 - DEBUG - frame_counter=90
+2025-10-23 17:54:34,865 - DEBUG - frame_counter=90
+2025-10-23 17:54:35,285 - WARNING - frame_read_failed index=5313
+2025-10-23 17:54:35,285 - DEBUG - detections_per_frame=[[], []]
+2025-10-23 17:54:35,285 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:54:35,286 - DEBUG - srt_detections index=55 payload_len=525
+2025-10-23 17:54:35,564 - DEBUG - detections_per_frame=[[], [], []]
+2025-10-23 17:54:35,564 - DEBUG - anchor_scores={<Anchor.BOTTOM_CENTER: 'bottom_center'>: 0.0, <Anchor.BOTTOM_RIGHT: 'bottom_right'>: 0.0, <Anchor.BOTTOM_LEFT: 'bottom_left'>: 0.0} best_anchor=Anchor.BOTTOM_CENTER
+2025-10-23 17:54:35,565 - DEBUG - srt_detections index=54 payload_len=600
