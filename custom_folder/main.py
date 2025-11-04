@@ -5,7 +5,7 @@ import time
 import uuid
 import threading
 import asyncio
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, Tuple
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import asynccontextmanager
@@ -248,6 +248,38 @@ def safe_import_module(module_name: str, file_path: str):
         logger.error(f"Failed to import {module_name}: {str(e)}")
         raise
 
+def extract_user_id(req: Request) -> Optional[str]:
+    """Best-effort user_id extraction.
+
+    Priority:
+    1) request.state.user.id (if middleware set it)
+    2) Query param 'user_id'
+    3) Headers 'x-user-id' or 'user-id'
+    """
+    uid = None
+    try:
+        state_user = getattr(req.state, "user", None)
+        if isinstance(state_user, dict):
+            uid = state_user.get("id") or state_user.get("_id") or state_user.get("user_id")
+        elif state_user is not None:
+            uid = getattr(state_user, "id", None) or getattr(state_user, "_id", None)
+    except Exception:
+        uid = None
+
+    if not uid:
+        uid = req.query_params.get("user_id") or req.headers.get("x-user-id") or req.headers.get("user-id")
+
+    return str(uid) if uid else None
+
+def ensure_user_dirs(base_dir: Path, user_id: str) -> Tuple[Path, Path]:
+    """Create and return per-user upload/output directories under base_dir/user_id/."""
+    user_root = base_dir / user_id
+    upload_dir = user_root / "uploads"
+    output_dir = user_root / "outputs"
+    upload_dir.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    return upload_dir, output_dir
+
 # Try to import required modules
 try:
     from subtitle_correction import main as correct_subtitles_main
@@ -337,14 +369,14 @@ async def upload_files(
 ):
     """Upload video and subtitle files with validation."""
     try:
-        # Extract and validate user_id from request state (set by AuthMiddleware)
-        user_id = getattr(request.state, "user", {}).get("id") if hasattr(request.state, "user") else None
+        # Resolve user_id using middleware or query/header fallbacks
+        user_id = extract_user_id(request)
         if not user_id:
             raise HTTPException(status_code=400, detail="Missing user_id for this request")
-        user_id = str(user_id)
 
-        upload_dir = config.upload_dir / user_id
-        upload_dir.mkdir(parents=True, exist_ok=True)
+        # Build per-user directories as base_dir/<user_id>/uploads and base_dir/<user_id>/outputs
+        upload_dir, _ = ensure_user_dirs(BASE_DIR, user_id)
+
         # Validate files first
         await validate_file_upload(video_file, ALLOWED_VIDEO_EXTENSIONS)
         await validate_file_upload(subtitle_file, ALLOWED_SUBTITLE_EXTENSIONS)
@@ -376,16 +408,14 @@ async def start_generation(
 ):
     """Start subtitle generation task."""
     try:
-        # Extract and validate user_id from request state (set by AuthMiddleware)
-        user_id = getattr(user_data.state, "user", {}).get("id") if hasattr(user_data.state, "user") else None
+        # Resolve user_id using middleware or query/header fallbacks
+        user_id = extract_user_id(user_data)
         if not user_id:
             raise HTTPException(status_code=400, detail="Missing user_id for this request")
-        user_id = str(user_id)
 
-        upload_dir = UPLOAD_DIR / user_id
-        upload_dir.mkdir(parents=True, exist_ok=True)
-        output_dir = OUTPUT_DIR / user_id
-        output_dir.mkdir(parents=True, exist_ok=True)
+        # Create per-user directories: base/<user_id>/uploads and base/<user_id>/outputs
+        upload_dir, output_dir = ensure_user_dirs(BASE_DIR, user_id)
+
         video_path = upload_dir / request.video_filename
         if not video_path.exists():
             raise HTTPException(404, f"Video file not found: {request.video_filename}")
@@ -496,16 +526,14 @@ async def correct_subtitles_async(
 ):
     """Start async subtitle correction with progress tracking."""
     try:
-        # Extract and validate user_id from request state (set by AuthMiddleware)
-        user_id = getattr(user_data.state, "user", {}).get("id") if hasattr(user_data.state, "user") else None
+        # Resolve user_id using middleware or query/header fallbacks
+        user_id = extract_user_id(user_data)
         if not user_id:
             raise HTTPException(status_code=400, detail="Missing user_id for this request")
-        user_id = str(user_id)
 
-        upload_dir = config.upload_dir / user_id
-        upload_dir.mkdir(parents=True, exist_ok=True)
-        output_dir = config.output_dir / user_id
-        output_dir.mkdir(parents=True, exist_ok=True)
+        # Create per-user directories: base/<user_id>/uploads and base/<user_id>/outputs
+        upload_dir, output_dir = ensure_user_dirs(BASE_DIR, user_id)
+
         # Validate files
         await validate_file_upload(video, ALLOWED_VIDEO_EXTENSIONS)
         await validate_file_upload(subtitle, ALLOWED_SUBTITLE_EXTENSIONS)
