@@ -13,7 +13,7 @@ import mimetypes
 from datetime import datetime
 from Auth.auth import router as auth_router
 from middleware.middleware import AuthMiddleware
-from fastapi import FastAPI, File, UploadFile, HTTPException, BackgroundTasks, Depends, Form , Request
+from fastapi import FastAPI, File, UploadFile, HTTPException, BackgroundTasks, Depends, Form, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 
@@ -96,12 +96,12 @@ class AppConfig:
         self.output_dir = OUTPUT_DIR
         self.max_file_size = MAX_FILE_SIZE
         self.max_workers = MAX_WORKERS
-        self.allowed_origins = ["http://localhost:3000", "http://127.0.0.1:3000",""]
+        self.allowed_origins = ["http://localhost:3000", "http://127.0.0.1:3000", ""]
         self.host = "0.0.0.0"
         self.port = 8000
         self.debug = False
 
-        # Create directories if they do not exist.
+        # Create base directories if they do not exist.
         self.upload_dir.mkdir(exist_ok=True)
         self.output_dir.mkdir(exist_ok=True)
 
@@ -248,26 +248,51 @@ def safe_import_module(module_name: str, file_path: str):
         logger.error(f"Failed to import {module_name}: {str(e)}")
         raise
 
-def extract_user_id(req: Request) -> Optional[str]:
-    """Best-effort user_id extraction.
-
-    Priority:
-    1) request.state.user.id (if middleware set it)
-    2) Query param 'user_id'
-    3) Headers 'x-user-id' or 'user-id'
+def extract_user_id(req: Request, body_user_id: Optional[str] = None) -> Optional[str]:
+    """Extract user_id using a consistent precedence:
+    1) request.state.user (keys: 'sub', 'id', '_id', 'user_id')
+    2) X-User-Id/User-Id header
+    3) Query param 'user_id'
+    4) Provided body_user_id fallback (e.g., from parsed body/form)
     """
     uid = None
+    # 1) From request.state.user
     try:
         state_user = getattr(req.state, "user", None)
         if isinstance(state_user, dict):
-            uid = state_user.get("id") or state_user.get("_id") or state_user.get("user_id")
+            uid = (
+                state_user.get("sub")
+                or state_user.get("id")
+                or state_user.get("_id")
+                or state_user.get("user_id")
+            )
         elif state_user is not None:
-            uid = getattr(state_user, "id", None) or getattr(state_user, "_id", None)
+            uid = (
+                getattr(state_user, "sub", None)
+                or getattr(state_user, "id", None)
+                or getattr(state_user, "_id", None)
+                or getattr(state_user, "user_id", None)
+            )
     except Exception:
         uid = None
 
+    # 2) Header
     if not uid:
-        uid = req.query_params.get("user_id") or req.headers.get("x-user-id") or req.headers.get("user-id")
+        # Headers mapping is case-insensitive, but we guard by common spellings.
+        uid = (
+            req.headers.get("X-User-Id")
+            or req.headers.get("x-user-id")
+            or req.headers.get("User-Id")
+            or req.headers.get("user-id")
+        )
+
+    # 3) Query param
+    if not uid:
+        uid = req.query_params.get("user_id")
+
+    # 4) Body/model fallback (supplied by caller to avoid re-reading the body)
+    if not uid and body_user_id:
+        uid = body_user_id
 
     return str(uid) if uid else None
 
@@ -276,6 +301,7 @@ def ensure_user_dirs(base_dir: Path, user_id: str) -> Tuple[Path, Path]:
     user_root = base_dir / user_id
     upload_dir = user_root / "uploads"
     output_dir = user_root / "outputs"
+    # Ensure directories exist before use
     upload_dir.mkdir(parents=True, exist_ok=True)
     output_dir.mkdir(parents=True, exist_ok=True)
     return upload_dir, output_dir
@@ -336,15 +362,19 @@ async def root():
 # API endpoint for uploading video only (for generation)
 @app.post("/upload-video/")
 async def upload_video(
-    request:Request,
+    request: Request,
     video_file: UploadFile = File(...),
     config: AppConfig = Depends(get_app_config)
 ):
     """Upload video file for subtitle generation."""
     try:
-        user_id = request.state.user.get("id",None)
-        upload_dir = config.upload_dir / user_id
-        upload_dir.mkdir(parents=True, exist_ok=True)
+        # Resolve user_id and ensure per-user upload dir
+        user_id = extract_user_id(request)
+        if not user_id:
+            raise HTTPException(status_code=400, detail="Missing user_id for this request")
+
+        upload_dir, _ = ensure_user_dirs(BASE_DIR, user_id)
+
         await validate_file_upload(video_file, ALLOWED_VIDEO_EXTENSIONS)
         video_path = safe_save_file(video_file, upload_dir)
         
@@ -361,7 +391,7 @@ async def upload_video(
 # API endpoint for uploading files
 @app.post("/upload-files/")
 async def upload_files(
-    request : Request,
+    request: Request,
     video_file: UploadFile = File(...),
     subtitle_file: UploadFile = File(...),
     config: AppConfig = Depends(get_app_config)
@@ -369,7 +399,7 @@ async def upload_files(
 ):
     """Upload video and subtitle files with validation."""
     try:
-        # Resolve user_id using middleware or query/header fallbacks
+        # Resolve user_id using middleware, headers, query, or body fallbacks
         user_id = extract_user_id(request)
         if not user_id:
             raise HTTPException(status_code=400, detail="Missing user_id for this request")
@@ -401,15 +431,15 @@ async def upload_files(
 # API endpoint for subtitle generation
 @app.post("/generate/") 
 async def start_generation(
-    user_data : Request,
+    user_data: Request,
     request: GenerationRequest, 
     background_tasks: BackgroundTasks,
     task_manager: TaskManager = Depends(get_task_manager)
 ):
     """Start subtitle generation task."""
     try:
-        # Resolve user_id using middleware or query/header fallbacks
-        user_id = extract_user_id(user_data)
+        # Resolve user_id using middleware, headers, query, or body fallbacks
+        user_id = extract_user_id(user_data, getattr(request, "user_id", None))
         if not user_id:
             raise HTTPException(status_code=400, detail="Missing user_id for this request")
 
@@ -447,7 +477,7 @@ async def start_generation(
 
                 task_manager.update_task(task_id, progress=80, message="Writing subtitle file...")
 
-                # Write the subtitles using the write_subtitles function
+                # Write the subtitles using the write_subtitles function scoped to user output dir
                 output_path = output_dir / output_filename
                 write_subtitles(final_segments, request.subtitle_format, str(output_path))
                 logger.info(f"Total time taken: {time.time() - start_time:.2f} seconds")
@@ -526,7 +556,7 @@ async def correct_subtitles_async(
 ):
     """Start async subtitle correction with progress tracking."""
     try:
-        # Resolve user_id using middleware or query/header fallbacks
+        # Resolve user_id using middleware, headers, query, or body fallbacks
         user_id = extract_user_id(user_data)
         if not user_id:
             raise HTTPException(status_code=400, detail="Missing user_id for this request")
@@ -681,15 +711,22 @@ async def get_sync_result(
 # API endpoint for repositioning subtitles
 @app.post("/reposition/", response_model=Dict[str, str])
 async def reposition_subtitles(
+    req: Request,
     request: RepositionRequest, 
     background_tasks: BackgroundTasks,
     executor: ThreadPoolExecutor = Depends(get_executor)
 ):
     """Start subtitle repositioning task (after sync)."""
     try:
-        video_path = UPLOAD_DIR / request.video_filename
-        subtitle_path_outputs = OUTPUT_DIR / request.subtitle_filename
-        subtitle_path_uploads = UPLOAD_DIR / request.subtitle_filename
+        # Resolve user_id and scope to per-user directories
+        user_id = extract_user_id(req, getattr(request, "user_id", None))
+        if not user_id:
+            raise HTTPException(status_code=400, detail="Missing user_id for this request")
+        upload_dir, output_dir = ensure_user_dirs(BASE_DIR, user_id)
+
+        video_path = upload_dir / request.video_filename
+        subtitle_path_outputs = output_dir / request.subtitle_filename
+        subtitle_path_uploads = upload_dir / request.subtitle_filename
         
         if not video_path.exists():
             raise HTTPException(status_code=404, detail=f"Video file not found: {request.video_filename}")
@@ -705,9 +742,9 @@ async def reposition_subtitles(
         def run_reposition():
             try:
                 output_file = reposition_module.process_subtitle(str(video_path), str(subtitle_path))
-                output_path = OUTPUT_DIR / Path(output_file).name
+                output_path = output_dir / Path(output_file).name
                 if Path(output_file) != output_path:
-                    # Always overwrite the output file in OUTPUT_DIR
+                    # Always overwrite the output file in user's output dir
                     if output_path.exists():
                         output_path.unlink()  # Remove old file
                     Path(output_file).rename(output_path)  # Use Path.rename for moving
@@ -731,13 +768,18 @@ async def reposition_subtitles(
 
 # API endpoint for downloading result files
 @app.get("/download/{filename}")
-async def download_file(request: Request,filename: str):
-    """Download a synchronized subtitle file."""
+async def download_file(request: Request, filename: str):
+    """Download a synchronized subtitle file scoped to the current user."""
     # Validate filename to prevent path traversal.
     if ".." in filename or "/" in filename or "\\" in filename:
         raise HTTPException(status_code=400, detail="Invalid filename")
-    user_id = request.state.user.get('id')
-    file_path = OUTPUT_DIR / user_id / filename
+
+    # Resolve user_id and compute per-user output path
+    user_id = extract_user_id(request)
+    if not user_id:
+        raise HTTPException(status_code=400, detail="Missing user_id for this request")
+    _, output_dir = ensure_user_dirs(BASE_DIR, user_id)
+    file_path = output_dir / filename
 
     if not file_path.exists():
         raise HTTPException(status_code=404, detail="File not found")
@@ -788,33 +830,46 @@ async def get_available_models():
 
 # API endpoint for listing available files
 @app.get("/files/")
-async def list_files():
-    """List available files in upload and output directories."""
+async def list_files(request: Request):
+    """List available files in the current user's upload and output directories."""
     try:
+        # Scope listing to the requesting user's directories
+        user_id = extract_user_id(request)
+        if not user_id:
+            raise HTTPException(status_code=400, detail="Missing user_id for this request")
+        upload_dir, output_dir = ensure_user_dirs(BASE_DIR, user_id)
+
         # Use os.scandir for efficient directory traversal
-        upload_files = [entry.name for entry in os.scandir(UPLOAD_DIR) if entry.is_file()]
-        output_files = [entry.name for entry in os.scandir(OUTPUT_DIR) if entry.is_file()]
+        upload_files = [entry.name for entry in os.scandir(upload_dir) if entry.is_file()]
+        output_files = [entry.name for entry in os.scandir(output_dir) if entry.is_file()]
         
         return {
             "upload_files": upload_files,
             "output_files": output_files
         }
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error listing files: {str(e)}")
 
 # API endpoint for deleting files
 @app.delete("/files/{filename}")
-async def delete_file(filename: str, file_type: str = "upload"):
-    """Delete a file from the upload or output directory."""
+async def delete_file(request: Request, filename: str, file_type: str = "upload"):
+    """Delete a file from the current user's upload or output directory."""
     try:
         # Validate filename to prevent path traversal.
         if ".." in filename or "/" in filename or "\\" in filename:
             raise HTTPException(status_code=400, detail="Invalid filename")
 
+        user_id = extract_user_id(request)
+        if not user_id:
+            raise HTTPException(status_code=400, detail="Missing user_id for this request")
+        upload_dir, output_dir = ensure_user_dirs(BASE_DIR, user_id)
+
         if file_type == "upload":
-            file_path = UPLOAD_DIR / filename
+            file_path = upload_dir / filename
         elif file_type == "output":
-            file_path = OUTPUT_DIR / filename
+            file_path = output_dir / filename
         else:
             raise HTTPException(status_code=400, detail="file_type must be 'upload' or 'output'")
 
@@ -833,18 +888,24 @@ async def delete_file(filename: str, file_type: str = "upload"):
 
 # API endpoint for cleaning up files
 @app.delete("/cleanup/")
-async def cleanup_files(task_manager: TaskManager = Depends(get_task_manager)):
-    """Clean up all uploaded and output files."""
+async def cleanup_files(request: Request, task_manager: TaskManager = Depends(get_task_manager)):
+    """Clean up all uploaded and output files for the current user."""
     try:
-        # Batch delete files to reduce I/O overhead
-        upload_files = list(UPLOAD_DIR.iterdir())
-        output_files = list(OUTPUT_DIR.iterdir())
+        # Resolve user and scope cleanup to their directories only
+        user_id = extract_user_id(request)
+        if not user_id:
+            raise HTTPException(status_code=400, detail="Missing user_id for this request")
+        upload_dir, output_dir = ensure_user_dirs(BASE_DIR, user_id)
+
+        # Batch delete files to reduce I/O overhead (user-specific)
+        upload_files = list(upload_dir.iterdir())
+        output_files = list(output_dir.iterdir())
 
         for file_path in upload_files + output_files:
             if file_path.is_file():
                 file_path.unlink()
 
-        # Clear task status and results
+        # Optionally clear tasks (kept global behavior)
         task_manager.cleanup_old_tasks(0)  # Clear all tasks
         
         return {
@@ -863,7 +924,7 @@ async def health_check(config: AppConfig = Depends(get_app_config)):
     try:
         task_manager = app_state.get_task_manager()
         
-        # Optimize disk usage check
+        # Optimize disk usage check (global health; not user-scoped)
         upload_space, output_space = map(
             shutil.disk_usage, [config.upload_dir, config.output_dir]
         )
