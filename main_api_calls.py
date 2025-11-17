@@ -5,6 +5,7 @@ import time
 import uuid
 import threading
 import asyncio
+import multiprocessing
 from typing import Optional, Dict, Any, List
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
@@ -323,6 +324,52 @@ except ImportError as e:
     logger.error(f"Failed to import required modules: {str(e)}")
     raise
 
+def _generation_process_entry(
+    video_path: str,
+    subtitle_lang: str,
+    translation_engine: Optional[str],
+    translation_credentials: Optional[Any],
+    output_path: str,
+    subtitle_format: str,
+) -> None:
+    """
+    Child process entry point for subtitle generation.
+
+    This function runs in a separate OS process (daemon=True). It performs:
+    - Subtitle transcription/translation via generate_subtitles
+    - Writing the resulting subtitles via write_subtitles
+
+    Notes:
+    - No in-memory state is shared with the API server. Only simple, pickleable arguments are accepted.
+    - Any exception results in a non-zero exit code; the parent monitors exit code to update task status.
+    """
+    try:
+        # Normalize translation credentials if needed
+        creds = None
+        if translation_credentials is not None:
+            if isinstance(translation_credentials, dict):
+                creds = translation_credentials
+            elif isinstance(translation_credentials, str):
+                try:
+                    import json as _json
+                    creds = _json.loads(translation_credentials)
+                except Exception:
+                    creds = None
+
+        # Perform generation
+        final_segments = generate_subtitles(
+            str(video_path),
+            subtitle_lang=subtitle_lang,
+            translation_engine=translation_engine,
+            translation_credentials=creds,
+        )
+
+        # Write the subtitles file
+        write_subtitles(final_segments, subtitle_format, str(output_path))
+    except Exception as e:
+        logger.exception(f"Generation process failed: {e}")
+        raise
+
 # FastAPI app with proper configuration
 app = FastAPI(
     title="Subtitle Synchronizer API",
@@ -487,66 +534,89 @@ async def start_generation(
     background_tasks: BackgroundTasks,
     task_manager: TaskManager = Depends(get_task_manager)
 ):
-    """Start subtitle generation task."""
+    """Start subtitle generation task using a separate OS process."""
     try:
-        user_id = user_data.state.user.get("id",None)
+        user_id = user_data.state.user.get("id", None)
         print(user_id)
         upload_dir = UPLOAD_DIR / user_id
         upload_dir.mkdir(parents=True, exist_ok=True)
         output_dir = OUTPUT_DIR / user_id
         output_dir.mkdir(parents=True, exist_ok=True)
+
         video_path = upload_dir / request.video_filename
         if not video_path.exists():
             raise HTTPException(404, f"Video file not found: {request.video_filename}")
-        
+
         if request.output_filename:
             output_filename = request.output_filename
         else:
             base_name = Path(request.video_filename).stem
             output_filename = f"{base_name}_subtitles.{request.subtitle_format}"
-        
+
         task_id = task_manager.create_task("generation")
-        
-        def run_generation_task():
+
+        # Prepare output path and set initial status
+        output_path = output_dir / output_filename
+        task_manager.update_task(
+            task_id,
+            status="processing",
+            message="Starting generation process...",
+            progress=10,
+        )
+
+        # Start the generation in a separate daemon process
+        proc = multiprocessing.Process(
+            target=_generation_process_entry,
+            args=(
+                str(video_path),
+                request.subtitle_lang,
+                request.translation_engine,
+                request.translation_credentials,
+                str(output_path),
+                request.subtitle_format,
+            ),
+            daemon=True,
+        )
+        proc.start()
+        logger.info(f"Started generation process PID={proc.pid} for task_id={task_id}")
+        # Reflect PID in task message for observability
+        task_manager.update_task(
+            task_id,
+            message=f"Generation process started (pid={proc.pid})",
+            progress=15,
+        )
+
+        # Monitor process completion in a lightweight daemon thread; do not block API
+        def _monitor_generation():
             try:
-                start_time = time.time()
-
-                task_manager.update_task(task_id, status="processing", message="Extracting audio and detecting language...", progress=10)
-
-                # Call the refined generate_subtitles function
-                task_manager.update_task(task_id, message="Transcribing audio in chunks...", progress=30)
-                
-                # Pass translation_engine and translation_credentials to generate_subtitles
-                final_segments = generate_subtitles(
-                    str(video_path),
-                    subtitle_lang=request.subtitle_lang,
-                    translation_engine=request.translation_engine,
-                    translation_credentials=request.translation_credentials
-                )
-
-                task_manager.update_task(task_id, progress=80, message="Writing subtitle file...")
-
-                # Write the subtitles using the write_subtitles function
-                output_path = output_dir / output_filename
-                write_subtitles(final_segments, request.subtitle_format, str(output_path))
-                logger.info(f"Total time taken: {time.time() - start_time:.2f} seconds")
-
-                task_manager.update_task(task_id, 
-                    progress=100,
-                    status="completed",
-                    message="Subtitles generated successfully",
-                    result_file=output_filename,
-                    processing_time=time.time() - task_manager.get_task(task_id)["start_time"],
-                    segments_count=len(final_segments)
-                )
+                proc.join()
+                exit_code = proc.exitcode
+                if exit_code == 0:
+                    task_manager.update_task(
+                        task_id,
+                        progress=100,
+                        status="completed",
+                        message="Subtitles generated successfully",
+                        result_file=output_filename,
+                        processing_time=time.time() - task_manager.get_task(task_id)["start_time"],
+                    )
+                else:
+                    task_manager.update_task(
+                        task_id,
+                        status="failed",
+                        message=f"Generation process failed with exit code {exit_code}",
+                        processing_time=time.time() - task_manager.get_task(task_id)["start_time"],
+                    )
             except Exception as e:
-                task_manager.update_task(task_id,
+                task_manager.update_task(
+                    task_id,
                     status="failed",
                     message=str(e),
-                    processing_time=time.time() - task_manager.get_task(task_id)["start_time"]
+                    processing_time=time.time() - task_manager.get_task(task_id)["start_time"],
                 )
 
-        threading.Thread(target=run_generation_task, daemon=True).start()
+        threading.Thread(target=_monitor_generation, daemon=True).start()
+
         return {
             "task_id": task_id,
             "message": "Subtitle generation task started",
